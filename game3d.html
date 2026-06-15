@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GWM World Driving Game - 3D First Person</title>
+    <link rel="stylesheet" href="game3d-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- HUD Elements -->
+        <div id="hud">
+            <div id="speedometer" class="hud-item">
+                <span class="label">Speed:</span>
+                <span class="value">0</span> km/h
+            </div>
+            
+            <div id="fuelGauge" class="hud-item">
+                <span class="label">Fuel:</span>
+                <div class="fuel-bar">
+                    <div id="fuelFill" class="fuel-fill"></div>
+                </div>
+            </div>
+            
+            <div id="location" class="hud-item">
+                <span class="label">Location:</span>
+                <span class="value">Unknown</span>
+            </div>
+            
+            <div id="vehicleInfo" class="hud-item">
+                <span class="label">Vehicle:</span>
+                <span class="value">-</span>
+            </div>
+            
+            <div id="controls" class="controls-info">
+                <p><strong>Controls:</strong></p>
+                <p>W/↑ - Forward | S/↓ - Backward</p>
+                <p>A/← - Left | D/→ - Right</p>
+                <p>SPACE - Brake | Shift - Boost</p>
+                <p>M - Mods Menu | ESC - Pause</p>
+            </div>
+        </div>
+
+        <!-- Vehicle Selector -->
+        <div id="vehicleSelector" class="modal active">
+            <div class="modal-content">
+                <h1>🌍 GWM World Driving Game</h1>
+                <p>Select Your Vehicle</p>
+                <div class="vehicle-options">
+                    <button class="vehicle-btn" data-vehicle="p300">
+                        <div class="vehicle-name">GWM P 300</div>
+                        <div class="vehicle-type">Bakkie (Pickup)</div>
+                        <div class="vehicle-stats">Max Speed: 180 km/h</div>
+                    </button>
+                    <button class="vehicle-btn" data-vehicle="tank300">
+                        <div class="vehicle-name">GWM Tank 300</div>
+                        <div class="vehicle-type">SUV</div>
+                        <div class="vehicle-stats">Max Speed: 160 km/h</div>
+                    </button>
+                    <button class="vehicle-btn" data-vehicle="tank500">
+                        <div class="vehicle-name">GWM Tank 500</div>
+                        <div class="vehicle-type">Large Tank</div>
+                        <div class="vehicle-stats">Max Speed: 150 km/h</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mods Menu -->
+        <div id="modsMenu" class="modal">
+            <div class="modal-content">
+                <h2>Mods Menu</h2>
+                <div id="modsList" class="mods-list">
+                    <p>Loading mods...</p>
+                </div>
+                <button class="btn-close">Close</button>
+            </div>
+        </div>
+
+        <!-- Pause Menu -->
+        <div id="pauseMenu" class="modal">
+            <div class="modal-content">
+                <h2>Game Paused</h2>
+                <button id="resumeBtn" class="btn-menu">Resume</button>
+                <button id="modsBtn" class="btn-menu">Mods</button>
+                <button id="settingsBtn" class="btn-menu">Settings</button>
+                <button id="quitBtn" class="btn-menu">Quit to Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game3d.js"></script>
+</body>
+</html>
